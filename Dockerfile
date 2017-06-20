@@ -1,4 +1,4 @@
-FROM alpine
+FROM arm64v8/alpine
 
 RUN apk --update add build-base openssl-dev cmake musl-dev libmpdclient-dev
 
