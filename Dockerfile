@@ -7,6 +7,7 @@ COPY ./ ./
 
 RUN cmake .
 RUN make
+ENV MPD_SERVER=mpd
 
 EXPOSE 8080
-CMD ./ympd
+CMD ./ympd -h $MPD_SERVER
