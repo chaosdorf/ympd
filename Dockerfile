@@ -10,4 +10,5 @@ RUN apk add  --no-cache libmpdclient openssl
 EXPOSE 8080
 COPY --from=0 /app/build/ympd /usr/bin/ympd
 COPY --from=0 /app/build/mkdata /usr/bin/mkdata
-CMD ympd
+ENV MPD_SERVER=mpd
+CMD ympd -h $MPD_SERVER
