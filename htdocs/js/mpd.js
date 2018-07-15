@@ -1,7 +1,7 @@
 /* ympd
    (c) 2013-2014 Andrew Karpow <andy@ndyk.de>
    This project's homepage is: https://www.ympd.org
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; version 2 of the License.
@@ -289,7 +289,7 @@ function webSocketConnect() {
                       });
                       return $helper;
                     };
-                    
+
                     //Make queue table sortable
                     $('#salamisandwich > tbody').sortable({
                       helper: fixHelperModified,
@@ -397,7 +397,7 @@ function webSocketConnect() {
                     } else {
                         $('#salamisandwich > tbody > tr').on({
                             mouseenter: function() {
-                                if($(this).is(".dir")) 
+                                if($(this).is(".dir"))
                                     appendClickableIcon($(this).children().last(), 'MPD_API_ADD_TRACK', 'plus');
                                 else if($(this).is(".song"))
                                     appendClickableIcon($(this).children().last(), 'MPD_API_ADD_PLAY_TRACK', 'play');
@@ -457,7 +457,7 @@ function webSocketConnect() {
                     $('#progressbar').slider(progress);
 
                     $('#counter')
-                    .text(elapsed_minutes + ":" + 
+                    .text(elapsed_minutes + ":" +
                         (elapsed_seconds < 10 ? '0' : '') + elapsed_seconds + " / " +
                         total_minutes + ":" + (total_seconds < 10 ? '0' : '') + total_seconds);
 
@@ -553,7 +553,7 @@ function webSocketConnect() {
                             message:{html: notification},
                             type: "info",
                         }).show();
-                        
+
                     break;
                 case 'mpdhost':
                     $('#mpdhost').val(obj.data.host);
@@ -563,7 +563,7 @@ function webSocketConnect() {
                     break;
                 case 'dirbleapitoken':
                     dirble_api_token = obj.data;
-                    
+
 		    if (dirble_api_token) {
 		        $('#dirble').removeClass('hide');
 
@@ -588,7 +588,7 @@ function webSocketConnect() {
             console.log("disconnected");
             $('.top-right').notify({
                 message:{text:"Connection to ympd lost, retrying in 3 seconds "},
-                type: "danger", 
+                type: "danger",
                 onClose: function () {
                     webSocketConnect();
                 }
@@ -1061,7 +1061,7 @@ function dirble_load_stations() {
 function set_filter (c) {
     filter = c;
 
-    $.each($('#salamisandwich > tbody > tr.dir'), function(i, line) {
+    $.each($('#salamisandwich > tbody > tr'), function(i, line) {
         var first = $(line).attr('uri')[0];
 
         if (filter === undefined) {
